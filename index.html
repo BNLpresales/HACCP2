@@ -165,7 +165,7 @@
 		function generateUrlScheme() {
             const creatorName = document.getElementById('creatorName').value;
             const productName = document.getElementById('productName').value;
-            const allergens = Array.from(document.querySelectorAll('input[name="allergens"]:checked')).map(el => el.value).join(\n);
+            const allergens = Array.from(document.querySelectorAll('input[name="allergens"]:checked')).map(el => el.value).join("\r\n");
 			const text1 = document.getElementById("text1Object").value;
             const text2 = document.getElementById("text2Object").value;
 			const copies = document.getElementById('copies').value;
