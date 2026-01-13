@@ -114,9 +114,9 @@
 			<option value="text2"></p><input type="datetime-local" id='text2Object'></p></option>          
 			</select>
 			
-			<!-- Here is the number of copies section, default is 1 copy,does not work now-->
-			<label for="copies" id="copies"> Copies:</label><br>
-			<input type="text" id="copies" placeholder="1">
+			<!-- Here is the number of copies section, default is 1 copy,does not work now!!!!!!!-->
+			
+            <input type="text" id="copies" placeholder="1">
 			<br><br>
         
 		<button id="printButton" onclick="sendToPrint()">Print label</button>
@@ -151,6 +151,7 @@
         }
 
         function sendToPrint() {
+		            
             const url = generateUrlScheme();
             window.open(url, '_blank');
             resetInputs();
@@ -170,7 +171,7 @@
             const text2 = document.getElementById("text2Object").value;
 			const copies = document.getElementById('copies').value;
 			return `brotherwebprint://print?filename=HACCP45x72mm.lbx&size=HACCP45x72mm.bin&text_text1=${encodeURIComponent(text1)}&text_text2=${encodeURIComponent(text2)}&text_creatorName=${encodeURIComponent(creatorName)}&text_productName=${encodeURIComponent(productName)}&text_allergens=${encodeURIComponent(allergens)}&copies=${copies}&rotate=Rotate180`;
-        }
+		}
 
         function resetInputs() {
             document.getElementById('creatorName').value = '';
@@ -188,8 +189,8 @@
         // Limit the selection of allergens to a maximum of 6
         document.querySelectorAll('input[name="allergens"]').forEach(checkbox => {
             checkbox.addEventListener('change', function() {
-                const checkedToppings = document.querySelectorAll('input[name="allergens"]:checked');
-                if (checkedToppings.length > 6) {
+                const checkedAllergens = document.querySelectorAll('input[name="allergens"]:checked');
+                if (checkedAllergens.length > 6) {
                     this.checked = false;
                     alert("You can use maximum 6 allergens.");
                 }
